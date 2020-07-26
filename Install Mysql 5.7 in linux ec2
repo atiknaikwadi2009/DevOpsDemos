@@ -21,3 +21,18 @@ service mysqld start
 chkconfig mysqld on
 
 mysql -u root -p
+
+-- DB Error due to user Grant Permission for root user.--- then follow the below steps.
+
+
+sudo mysql_upgrade -u root -p
+
+CREATE USER 'sadmin'@'103.71.168.128' IDENTIFIED BY 'welcome';
+
+GRANT ALL PRIVILEGES ON *.* TO 'sadmin'@'103.71.168.128'  WITH GRANT OPTION;
+
+CREATE USER 'sadmin'@'%' IDENTIFIED BY 'welcome';
+
+GRANT ALL PRIVILEGES ON *.* TO 'sadmin'@'%' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
