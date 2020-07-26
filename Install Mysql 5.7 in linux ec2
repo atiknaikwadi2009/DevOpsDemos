@@ -1,0 +1,11 @@
+yum install mysql-server
+
+chkconfig mysqld on
+
+service mysqld start
+Starting mysqld: [ OK ]
+
+mysqladmin -u root password [your_new_pwd]
+
+mysql -u root -p
+
